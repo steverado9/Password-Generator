@@ -1,0 +1,5 @@
+https://www.net-comber.com/charset.html
+Math.random() - generates random numbers
+Math.random() * 26 - beacause there are 26 letters of the alphabet
+Math.floor()- rounds down a number to the nearest whole number
+String.fromCharCode() - this string object method generates certain characters based on their code 
