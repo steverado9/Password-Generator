@@ -8,7 +8,7 @@ const symbolsEl = document.getElementById('symbols'); //get the symbols element
 const generateEl = document.getElementById('generate'); //get the generate element button
 const clipboardEl = document.getElementById('clipboard'); //get the clip board icon
 
-let randomFunc = {
+const randomFunc = {
     lower: getRandomLower,
     upper: getRandomUpper,
     number: getRandomNumber,
@@ -29,7 +29,7 @@ generateEl.addEventListener('click', () => {
 })
 
 //Copy password to clipboard
-clipboardEl.addEventListener('click', () =>{
+clipboardEl.addEventListener('click', () => {
     const textarea = document.createElement('textarea'); //create a textArea element
     const password = resultEl.innerText; //putting the content of the result element inside a varibale called password 
 
@@ -40,7 +40,7 @@ clipboardEl.addEventListener('click', () =>{
     textarea.value = password; //password is put inside the textarea value
     document.body.appendChild(textarea); //append text area to body
     textarea.select(); //select the text field
-    
+
     document.execCommand('copy');
     textarea.remove();
     alert('Password copied to clipboard!'); //alert password copied to clipboard
@@ -59,21 +59,19 @@ const generatePassword = (lower, upper, symbol, number, length) => {
     const typesArr = [{ lower }, { upper }, { symbol }, { number }].filter //an array of object
         (
             item => Object.values(item)[0] //This method filters anything that is false, removes it from the array
-            
+
         );
-        
-        
+
     for (let i = 0; i < length; i += typesCount) { // i = 0; 0 < 20; i = 4; 4 < 20
         for (const type of typesArr) { //lower upper symbol number 
             const funcName = Object.keys(type)[0]; //this method accesses the array of objects using the key 
-            
+
 
             let result = randomFunc[funcName]();
             generatedPassword += result; //aB/1 bA.2 
         }
     }
-    const finalPassWord = generatedPassword.slice(0, length); //generated password is sliced to the length of the password
-    return finalPassWord; //return sliced password
+    return generatedPassword.slice(0, length); // return generated password that is sliced to the length of the password
 }
 
 
