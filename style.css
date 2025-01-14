@@ -1,0 +1,18 @@
+body,
+.button,
+.clipboard {
+    background-color: #344CB7;
+}
+
+.backgorund1{
+    background-color: #001A6E;
+}
+
+.backgorund2 {
+    background-color: #1C325B;
+}
+
+.generatePassword,
+.bi{
+    cursor: pointer;
+}
